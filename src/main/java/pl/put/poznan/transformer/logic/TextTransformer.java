@@ -1,7 +1,9 @@
 package pl.put.poznan.transformer.logic;
 
 /**
- * This is just an example to show that the logic should be outside the REST service.
+ * Klasa sluzaca do transformacji tekstu
+ *
+ *
  */
 public class TextTransformer {
 
@@ -12,7 +14,11 @@ public class TextTransformer {
     }
 
     public String transform(String text){
-        // of course, normally it would do something based on the transforms
+        /**
+         *
+         * of course, normally it would do something based on the transforms
+         * @return cos
+          */
         return text.toUpperCase();
     }
 }

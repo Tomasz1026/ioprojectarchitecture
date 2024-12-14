@@ -1,24 +1,28 @@
 package pl.put.poznan.transformer.logic;
 
-/**
- * Klasa sluzaca do transformacji tekstu
- *
- *
- */
+import pl.put.poznan.transformer.exceptions.BadTextTransformationException;
+
 public class TextTransformer {
 
-    private final String[] transforms;
+    private InterfaceTextTransformer transformer;
 
-    public TextTransformer(String[] transforms){
-        this.transforms = transforms;
+    public TextTransformer(String[] transforms) throws BadTextTransformationException{
+        transformer = new NoTransformer();
+        for(String transform : transforms){
+            switch(transform){
+                case "lower":
+                    transformer = new LowerTransformer(transformer);
+                    break;
+                case "nochange":
+                    break;
+                default:
+                    throw new BadTextTransformationException();
+            }
+        }
     }
 
     public String transform(String text){
-        /**
-         *
-         * of course, normally it would do something based on the transforms
-         * @return cos
-          */
-        return text.toUpperCase();
+        return transformer.transform(text);
     }
 }
+

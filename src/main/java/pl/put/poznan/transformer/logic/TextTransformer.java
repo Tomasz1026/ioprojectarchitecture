@@ -1,17 +1,23 @@
 package pl.put.poznan.transformer.logic;
 
 import pl.put.poznan.transformer.exceptions.BadTextTransformationException;
+import pl.put.poznan.transformer.logic.transformers.LowerTransformer;
+import pl.put.poznan.transformer.logic.transformers.NoTransformer;
+import pl.put.poznan.transformer.logic.transformers.UpperTransformer;
 
 public class TextTransformer {
 
     private InterfaceTextTransformer transformer;
 
-    public TextTransformer(String[] transforms) throws BadTextTransformationException{
+    public TextTransformer(String[] transforms) throws BadTextTransformationException {
         transformer = new NoTransformer();
-        for(String transform : transforms){
-            switch(transform){
+        for (String transform : transforms) {
+            switch (transform) {
                 case "lower":
                     transformer = new LowerTransformer(transformer);
+                    break;
+                case "upper":
+                    transformer = new UpperTransformer(transformer);
                     break;
                 case "nochange":
                     break;
@@ -21,8 +27,7 @@ public class TextTransformer {
         }
     }
 
-    public String transform(String text){
+    public String transform(String text) {
         return transformer.transform(text);
     }
 }
-

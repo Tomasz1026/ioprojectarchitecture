@@ -3,6 +3,7 @@ package pl.put.poznan.transformer.logic;
 import pl.put.poznan.transformer.exceptions.BadTextTransformationException;
 import pl.put.poznan.transformer.logic.transformers.LowerTransformer;
 import pl.put.poznan.transformer.logic.transformers.NoTransformer;
+import pl.put.poznan.transformer.logic.transformers.InverseTransformer;
 import pl.put.poznan.transformer.logic.transformers.UpperTransformer;
 
 public class TextTransformer {
@@ -18,6 +19,9 @@ public class TextTransformer {
                     break;
                 case "upper":
                     transformer = new UpperTransformer(transformer);
+                    break;
+                case "inverse":
+                    transformer = new InverseTransformer(transformer);
                     break;
                 case "nochange":
                     break;

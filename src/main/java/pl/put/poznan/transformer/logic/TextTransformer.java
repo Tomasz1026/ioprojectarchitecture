@@ -1,10 +1,7 @@
 package pl.put.poznan.transformer.logic;
 
 import pl.put.poznan.transformer.exceptions.BadTextTransformationException;
-import pl.put.poznan.transformer.logic.transformers.LowerTransformer;
-import pl.put.poznan.transformer.logic.transformers.NoTransformer;
-import pl.put.poznan.transformer.logic.transformers.InverseTransformer;
-import pl.put.poznan.transformer.logic.transformers.UpperTransformer;
+import pl.put.poznan.transformer.logic.transformers.*;
 
 public class TextTransformer {
 
@@ -22,6 +19,9 @@ public class TextTransformer {
                     break;
                 case "inverse":
                     transformer = new InverseTransformer(transformer);
+                    break;
+                case "capitalize":
+                    transformer = new CapitalizeTransformer(transformer);
                     break;
                 case "nochange":
                     break;

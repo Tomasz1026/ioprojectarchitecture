@@ -23,6 +23,9 @@ public class TextTransformer {
                 case "capitalize":
                     transformer = new CapitalizeTransformer(transformer);
                     break;
+                case "duplicate":
+                    transformer = new DuplicatesTransformer(transformer);
+                    break;
                 case "nochange":
                     break;
                 default:

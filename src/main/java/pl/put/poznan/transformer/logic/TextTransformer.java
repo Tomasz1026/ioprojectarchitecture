@@ -20,6 +20,9 @@ public class TextTransformer {
                 case "inverse":
                     transformer = new InverseTransformer(transformer);
                     break;
+                case "numbersToText":
+                    transformer = new NumbersToTextTransformer(transformer);
+                    break;
                 case "capitalize":
                     transformer = new CapitalizeTransformer(transformer);
                     break;

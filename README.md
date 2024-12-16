@@ -5,5 +5,5 @@ Dla osób pracujących z danymi tekstowymi nasza aplikacja Text Transformer umo�
 ### Członkowie zespołu:
 * Tomasz Kaczmarek 155903
 * Kacper Złotowski 156008
-* Wiktor Wachowski
-* Mateusz Ziółkowski
+* Wiktor Wachowski 155859
+* Mateusz Ziółkowski 155834

@@ -29,6 +29,12 @@ public class TextTransformer {
                 case "duplicate":
                     transformer = new DuplicatesTransformer(transformer);
                     break;
+                case "abbreviate":
+                    transformer = new AbbreviationTransformer(transformer, false);
+                    break;
+                case "expand":
+                    transformer = new AbbreviationTransformer(transformer, true);
+                    break;
                 case "nochange":
                     break;
                 default:

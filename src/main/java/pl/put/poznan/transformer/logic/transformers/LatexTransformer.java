@@ -6,7 +6,8 @@ import pl.put.poznan.transformer.logic.InterfaceTextTransformer;
 /**
  * Klasa służąca do zamiany pierwszej litery w każdym wyrazie na wielką
  */
-public class CapitalizeTransformer extends BaseTransformer {
+public class LatexTransformer extends BaseTransformer {
+
 
     /**
      * Konstruktor tworzący obiekt
@@ -14,7 +15,7 @@ public class CapitalizeTransformer extends BaseTransformer {
      * @param transformer Transformator stanowiący kolejną część łańcucha
      *                    transformacji
      */
-    public CapitalizeTransformer(InterfaceTextTransformer transformer) {
+    public LatexTransformer(InterfaceTextTransformer transformer) {
         super(transformer);
     }
 
@@ -25,22 +26,29 @@ public class CapitalizeTransformer extends BaseTransformer {
      *             transformacji
      * @return zwracany jest przetransformowany tekst
      */
-    private String capitalizeText(String text) {
+    private String formatLatex(String text) {
 
         String[] words = text.split(" ");
         StringBuilder result = new StringBuilder(text.length());
+        String temp = "";
+        char[] specialChars = {'&', '$'};
 
         for (String word : words) {
             if (!word.isEmpty()) {
-                if(!Character.isLetter(word.charAt(0))) {
-                    result.append(word);
-                } else {
-                    result.append(word.substring(0, 1).toUpperCase()).append(word.substring(1));
+                temp = "";
+                for (char c : word.toCharArray()) {
+
+                    for (char specialChar : specialChars) {
+                        if (c == specialChar) {
+                            temp += '/';
+                        }
+                    }
+                    temp += c;
                 }
+                result.append(temp);
             }
             result.append(" ");
         }
-        result.deleteCharAt(result.length() - 1);
 
         return result.toString();
     }
@@ -53,6 +61,6 @@ public class CapitalizeTransformer extends BaseTransformer {
      */
     @Override
     public String transform(String text) {
-        return capitalizeText(transformer.transform(text));
+        return formatLatex(transformer.transform(text));
     }
 }

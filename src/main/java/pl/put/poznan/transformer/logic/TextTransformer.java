@@ -35,6 +35,9 @@ public class TextTransformer {
                 case "expand":
                     transformer = new AbbreviationTransformer(transformer, true);
                     break;
+                case "latexFormat":
+                    transformer = new LatexTransformer(transformer);
+                    break;
                 case "nochange":
                     break;
                 default:

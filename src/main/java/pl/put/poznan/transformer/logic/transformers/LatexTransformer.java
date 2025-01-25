@@ -40,7 +40,7 @@ public class LatexTransformer extends BaseTransformer {
 
                     for (char specialChar : specialChars) {
                         if (c == specialChar) {
-                            temp += '/';
+                            temp += '\\';
                         }
                     }
                     temp += c;
@@ -49,6 +49,7 @@ public class LatexTransformer extends BaseTransformer {
             }
             result.append(" ");
         }
+        result.deleteCharAt(result.length() - 1);
 
         return result.toString();
     }

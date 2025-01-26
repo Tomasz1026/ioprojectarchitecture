@@ -4,7 +4,7 @@ import pl.put.poznan.transformer.logic.BaseTransformer;
 import pl.put.poznan.transformer.logic.InterfaceTextTransformer;
 
 /**
- * Klasa służąca do zamiany pierwszej litery w każdym wyrazie na wielką
+ * Klasa służąca do zamiany tekstu na format Latex'a
  */
 public class LatexTransformer extends BaseTransformer {
 
@@ -20,7 +20,7 @@ public class LatexTransformer extends BaseTransformer {
     }
 
     /**
-     * Metoda zamieniająca pierwszą literę w każdym wyrazie na wielką
+     * Metoda dodająca znak '/' przed każdym wystąpieniem znaku '&' lub '$'
      *
      * @param text typu String, przechowuje tekst mający zostać poddany
      *             transformacji
@@ -30,7 +30,7 @@ public class LatexTransformer extends BaseTransformer {
 
         String[] words = text.split(" ");
         StringBuilder result = new StringBuilder(text.length());
-        String temp = "";
+        String temp;
         char[] specialChars = {'&', '$'};
 
         for (String word : words) {

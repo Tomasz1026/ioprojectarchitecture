@@ -20,7 +20,7 @@ public class LatexTransformer extends BaseTransformer {
     }
 
     /**
-     * Metoda dodająca znak '/' przed każdym wystąpieniem znaku '&' lub '$'
+     * Metoda dodająca znak '/' przed każdym wystąpieniem znaku & lub $
      *
      * @param text typu String, przechowuje tekst mający zostać poddany
      *             transformacji

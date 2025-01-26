@@ -1,9 +1,7 @@
-import org.junit.Before;
 import org.junit.jupiter.api.*;
 import pl.put.poznan.transformer.logic.transformers.*;
 import pl.put.poznan.transformer.logic.*;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 public class InterfaceTextTransformerTest {
     public InterfaceTextTransformer transformer;
@@ -35,7 +33,7 @@ public class InterfaceTextTransformerTest {
     @Test
     public void duplicatetest(){
         transformer = new DuplicatesTransformer(transformer);
-        Assertions.assertEquals("do ",transformer.transform("do do do"));
+        Assertions.assertEquals("do",transformer.transform("do do do"));
     }
 
     @Test
@@ -53,7 +51,7 @@ public class InterfaceTextTransformerTest {
     @Test
     public void latextest(){
         transformer = new LatexTransformer(transformer);
-        Assertions.assertEquals("\\&",transformer.transform("&"));
+        Assertions.assertEquals("Tom \\& Jerry",transformer.transform("Tom & Jerry"));
     }
 
     @Test

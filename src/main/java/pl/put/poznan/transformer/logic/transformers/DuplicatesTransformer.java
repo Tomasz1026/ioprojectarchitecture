@@ -43,6 +43,8 @@ public class DuplicatesTransformer extends BaseTransformer {
             result.append(" ");
         }
 
+        result.deleteCharAt(result.length() - 1);
+
         return result.toString();
     }
 

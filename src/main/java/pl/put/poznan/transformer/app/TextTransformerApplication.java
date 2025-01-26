@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TextTransformerApplication {
 
     public static void main(String[] args) {
+        LaunchPanel panel = new LaunchPanel();
         SpringApplication.run(TextTransformerApplication.class, args);
     }
 }

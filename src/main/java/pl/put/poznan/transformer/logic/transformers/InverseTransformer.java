@@ -29,13 +29,10 @@ public class InverseTransformer extends BaseTransformer {
         StringBuilder inversedText = new StringBuilder(text.length());
 
         for (int i = 0; i < text.length(); i++) {
-            char charAtCorrespondingPosition = text.charAt(i);
             char reversedChar = text.charAt(text.length() - 1 - i);
 
             // Zmieniamy wielkość litery na identyczną co na tej samej pozycji w oryginale
-            inversedText.append(Character.isUpperCase(charAtCorrespondingPosition)
-                    ? Character.toUpperCase(reversedChar)
-                    : Character.toLowerCase(reversedChar));
+            inversedText.append(reversedChar);
         }
 
         return inversedText.toString();
